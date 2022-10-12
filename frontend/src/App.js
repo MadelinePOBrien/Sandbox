@@ -8,7 +8,6 @@ import Cookbook from "./pages/Cookbook";
 import Postings from "./pages/Postings";
 function App() {
   return (
-    <div className="App">
       <Routes>
         <Route path='/' element={<Login />} />
         <Route path='CreateAccount' element={<CreateAccount />} />
@@ -18,7 +17,6 @@ function App() {
           <Route path ='Postings' element={<Postings />}/>
         </Route>       
       </Routes>
-    </div>
   );
 }
 
