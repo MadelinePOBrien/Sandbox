@@ -3,7 +3,7 @@ const express = require("express");
 const { chats } = require("./data/data"); //can be deleted later
 const connectDB = require("./config/db");
 const userRoutes = require("./routes/userRoutes");
-
+const { notFound, errorHandler } = require("./middleware/errorServer");
 dotenv.config();
 connectDB();
 const app = express();
@@ -16,6 +16,11 @@ app.get('/', (req,res) => {
 });
 
 app.use('/api/user', userRoutes);
+
+//Error handling for not invalid routes, in middleware folder
+app.use(notFound);
+app.use(errorHandler);
+
 
 const PORT = process.env.PORT || 5000
 //Might have to replace 50000 with port below
