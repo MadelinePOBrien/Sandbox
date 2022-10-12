@@ -1,11 +1,13 @@
 const dotenv = require("dotenv");
 const express = require("express");
-const app = express();
-const { chats } = require("./data/data");
+const { chats } = require("./data/data"); //can be deleted later
 const connectDB = require("./config/db");
+const userRoutes = require("./routes/userRoutes");
 
 dotenv.config();
 connectDB();
+const app = express();
+app.use(express.json()); //So we can accept json data
 
 
 //Can use nodemon to auto update it, just change start: node to nodemon
